@@ -19,8 +19,7 @@ RUN --mount=src=./go.mod,dst=/go.mod \
     ln -s /usr/lib64/libstdc++.so.6 /usr/lib64/libstdc++.so && \
     dnf clean all && \
     # tokenizers
-    tokenizer_version=$(grep 'github.com/daulet/tokenizers' /go.mod | awk '{print $2}') && \
-    tokenizer_version=$(echo $tokenizer_version | awk -F'-' '{print $NF}') && \
+    tokenizer_version=1.20.2 && \
     echo "tokenizer_version: $tokenizer_version" && \
     curl -LO https://github.com/daulet/tokenizers/releases/download/${tokenizer_version}/libtokenizers.linux-arm64.tar.gz && \
     tar -C /usr/lib -xzf libtokenizers.linux-arm64.tar.gz && \
