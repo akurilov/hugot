@@ -46,6 +46,7 @@ COPY . /build
 
 RUN cd /build && \
     chown -R testuser:testuser /build && \
+    git clone https://github.com/gomlx/gopjrt /gopjrt && \
     # cli binary
     cd /build/cmd && CGO_ENABLED=1 CGO_LDFLAGS="-L/usr/lib/" GOOS=linux GOARCH=arm64 CGO_CFLAGS="-I/gopjrt" go build -tags "ALL" -a -o /cli main.go && \
     cd / && \
