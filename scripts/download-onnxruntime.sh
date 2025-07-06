@@ -14,7 +14,7 @@ if [[ -z $onnxruntime_version ]]; then
     exit 1
 fi
 
-name="onnxruntime-linux-arm64-${onnxruntime_version}"
+name="onnxruntime-linux-aarch64-${onnxruntime_version}"
 url="https://github.com/microsoft/onnxruntime/releases/download/v${onnxruntime_version}/$name.tgz"
 
 echo Downloading version "$onnxruntime_version" \(cpu\) from "${url} into $(pwd)"
